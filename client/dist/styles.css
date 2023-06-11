@@ -1,0 +1,89 @@
+/**
+ *
+ * Based on Josh Comeau's CSS Reset: https://www.joshwcomeau.com/css/custom-css-reset/.
+ *
+ * Feel free to edit this file as needed.
+ *
+ */
+
+ *,
+ *::before,
+ *::after {
+   box-sizing: border-box;
+ }
+
+ * {
+   margin: 0;
+ }
+
+ html,
+ body {
+  height: 100%;
+  background-color:white;
+  color:black;
+ }
+
+ body {
+   font-family: 'Helvetica Neue', sans-serif;
+   line-height: 1.5;
+   -webkit-font-smoothing: antialiased;
+ }
+
+ img,
+ picture,
+ video,
+ canvas,
+ svg {
+   display: block;
+   max-width: 100%;
+ }
+
+ input,
+ button,
+ textarea,
+ select {
+   font: inherit;
+ }
+
+ p,
+ h1,
+ h2,
+ h3,
+ h4,
+ h5,
+ h6 {
+   overflow-wrap: break-word;
+ }
+
+ main {
+   max-width: 80%;
+   padding: 16px;
+   margin: auto;
+ }
+
+
+
+ @keyframes light {
+  0% {
+    transform: scale(0.5);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.bulb {
+  background: radial-gradient(#feffbe 25%, transparent 100%);
+  animation: light 5s ease infinite;
+}
+
+.album {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card {
+  margin: 10px;
+}

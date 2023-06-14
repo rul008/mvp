@@ -1,14 +1,100 @@
 <!DOCTYPE html>
-<html lang="en">
-  <link>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Travel Gallery</title>
-    <link rel="stylesheet" href="styles.css"></link>
-  </head>
-  <body>
-    <main><div id="root"></div></main>
-    <div id="portal"></div>
-    <script src="bundle.js"></script>
-  </body>
+<html>
+<head>
+  <title>Travel Gallery</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    #image {
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 1;
+      transition: opacity 5s ease-out;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <div id="root"></div>
+  </main>
+  <div id="portal"></div>
+  <img id="image" src="UnrulyEnchantedFalcon-size_restricted.gif" alt="Image">
+
+  <script>
+    // Get a reference to the image element
+    var image = document.getElementById("image");
+
+    // Set the duration in milliseconds for the image to be displayed
+    var displayDuration = 5000;  // Replace with the desired duration in milliseconds
+
+    // Show the image
+    image.style.display = "inline";
+
+    // Function to hide the image after the display duration
+    function hideImage() {
+      // Hide the image
+      image.style.display = "none";
+    }
+
+    // Call the hideImage function after the display duration
+    function fadeOutImage() {
+      // Set the opacity to 0
+      image.style.opacity = 0;
+
+      // Hide the image after the transition completes
+      setTimeout(function() {
+        image.style.display = "none";
+      }, 2000); // Adjust the duration to match the transition duration
+    }
+
+    // Call the fadeOutImage function after the display duration
+    setTimeout(fadeOutImage, displayDuration);
+  </script>
+  <!-- <script src="bundle.js"></script> -->
+  <script>
+    // Delayed execution of bundle.js after 5 seconds
+    setTimeout(function() {
+      var script = document.createElement('script');
+      script.src = 'bundle.js';
+      document.body.appendChild(script);
+    }, 1000);  // 5000 milliseconds = 5 seconds
+  </script>
+</body>
 </html>
+
+
+
+<!-- <!DOCTYPE html>
+<html>
+<head>
+  <style>
+    #image {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <img id="image" src="fe2bf0b5f739050f1eb7.gif" alt="Image">
+
+  <script>
+    // Get a reference to the image element
+    var image = document.getElementById("image");
+
+    // Set the duration in seconds for the image to be displayed
+    var displayDuration = 5;  // Replace with the desired duration in seconds
+
+    // Show the image
+    image.style.display = "block";
+
+    // Wait for the specified duration and then hide the image
+    setTimeout(function() {
+      image.style.display = "none";
+    }, displayDuration * 1000);  // Convert to milliseconds
+  </script>
+</body>
+</html> -->
+

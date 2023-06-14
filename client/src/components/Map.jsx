@@ -15,7 +15,7 @@ function Circle({ loc, setContent }) {
         <circle
           className="bulb"
           r={3}
-          fill="#F0F382"
+          fill="#EDF1D6"
           onClick={() => { console.log(loc.city, loc.admin, loc.country); }}
           onMouseEnter={() => {
             setHover(true);
@@ -31,7 +31,7 @@ function Circle({ loc, setContent }) {
 
       {ifhover && (
 
-      <text stroke="#F0F382" style={{ fontSize: '10px' }}>
+      <text stroke="#40513B" style={{ fontSize: '10px' }}>
         {loc.city}
         ,
         {' '}

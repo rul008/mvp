@@ -13,7 +13,6 @@ function App() {
     type: 'dark',
   });
   const darkMode = useDarkMode(false);
-
   return (
     <NextUIProvider theme={darkMode.value ? darkTheme : lightTheme}>
       <div>

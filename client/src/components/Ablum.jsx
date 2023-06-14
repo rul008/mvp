@@ -5,8 +5,10 @@ import {
 } from '@nextui-org/react';
 import axios from 'axios';
 import moment from 'moment';
+import Photos from './Photos';
 
 function CoverEntry({ value, key }) {
+  const [show, setShow] = useState(false);
   return (
     <div className="card">
       <Card css={{ w: '300px' }}>
@@ -17,6 +19,7 @@ function CoverEntry({ value, key }) {
             height="100%"
             objectFit="cover"
             alt="Card example background"
+            onClick={() => { setShow(!show); }}
           />
         </Card.Body>
         <Card.Footer
@@ -45,11 +48,20 @@ function CoverEntry({ value, key }) {
               </Text>
               <Text color="#000" size={12}>
                 {value.date}
+                {' '}
+                {(!value.public) && <smaller>privacy</smaller>}
               </Text>
             </Col>
           </Row>
         </Card.Footer>
       </Card>
+      {show
+      && (
+      <div>
+        <Button size="sm" auto color="gradient" rounded bordered className="close" onClick={() => { setShow(false); }}>close</Button>
+        <Photos id={value.id} />
+      </div>
+      )}
     </div>
   );
 }
@@ -73,6 +85,7 @@ function Album() {
   useEffect(() => {
     axios.get('/api/album', { params: { city, year } })
       .then((res) => {
+        console.log('res', res.data);
         const arr = res.data.map((ele) => (
           {
             cover: ele.cover,
@@ -80,6 +93,8 @@ function Album() {
             city: ele.city,
             admin: ele.admin_name,
             country: ele.country,
+            public: ele.public,
+            id: ele.id,
           }
         ));
         console.log(arr);
